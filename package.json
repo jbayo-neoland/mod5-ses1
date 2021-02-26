@@ -1,0 +1,29 @@
+{
+  "name": "mod5-ses1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "first:s1": "node first-folder/s1.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbayo-neoland/mod5-ses1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbayo-neoland/mod5-ses1/issues"
+  },
+  "homepage": "https://github.com/jbayo-neoland/mod5-ses1#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cowsay": "^1.4.0",
+    "progressbar": "^1.3.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.6.4"
+  }
+}
