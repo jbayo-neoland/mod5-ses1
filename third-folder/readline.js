@@ -3,9 +3,13 @@ const readline = require('readline').createInterface({
   output: process.stdout
 })
 
-
-readline.question('How are you? ', (message) => {
-  console.log(`you are ${message}`);
-  console.log('bye');
-  readline.close();
-})
+const question = () => {
+  return new Promise((resolve, reject) => {
+    readline.question('How are you? ', (message) => {
+      console.log(`you are ${message}`);
+      console.log('bye');
+      resolve(message);
+      readline.close();
+    })
+  })
+}
