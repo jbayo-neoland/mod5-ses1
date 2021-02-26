@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
@@ -6,10 +8,21 @@ const readline = require('readline').createInterface({
 const question = () => {
   return new Promise((resolve, reject) => {
     readline.question('How are you? ', (message) => {
-      console.log(`you are ${message}`);
-      console.log('bye');
       resolve(message);
-      readline.close();
     })
   })
 }
+
+
+const main = async () => {
+  try {
+    let input1 = await question();
+    console.log(`Input1 is ${chalk.blue(input1)}`)
+  } catch (e) {
+    console.log(chalk.red(e));
+  }
+
+  readline.close();
+}
+
+main();
