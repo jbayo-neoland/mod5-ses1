@@ -5,9 +5,9 @@ const readline = require('readline').createInterface({
   output: process.stdout
 })
 
-const question = () => {
+const question = (query) => {
   return new Promise((resolve, reject) => {
-    readline.question('How are you? ', (message) => {
+    readline.question(query, (message) => {
       resolve(message);
     })
   })
@@ -16,8 +16,12 @@ const question = () => {
 
 const main = async () => {
   try {
-    let input1 = await question();
+    let input1 = await question('First number: ');
+    let input2 = await question('Second number: ');
     console.log(`Input1 is ${chalk.blue(input1)}`)
+    console.log(`Input2 is ${chalk.blue(input2)}`)
+    
+    console.log(`And the result is ${parseInt(input1) * parseInt(input2)}`)
   } catch (e) {
     console.log(chalk.red(e));
   }
