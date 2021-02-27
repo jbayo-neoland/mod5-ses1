@@ -6,6 +6,7 @@
   "scripts": {
     "first:s1": "node first-folder/s1.js",
     "devServer": "nodemon seventh-folder/server.js",
+    "expressDevServer": "nodemon eigth-folder/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,7 @@
     "chalk": "^4.1.0",
     "cowsay": "^1.4.0",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "progressbar": "^1.3.0"
   },
   "devDependencies": {
