@@ -20,8 +20,11 @@ const main = async () => {
     let input2 = await question('Second number: ');
     console.log(`Input1 is ${chalk.blue(input1)}`)
     console.log(`Input2 is ${chalk.blue(input2)}`)
-    
-    console.log(`And the result is ${parseInt(input1) * parseInt(input2)}`)
+    console.log('And the result is...');
+    // todo: progressbar
+    setTimeout(() => {
+      console.log(`${parseInt(input1) * parseInt(input2)}`)
+    }, 1300);
   } catch (e) {
     console.log(chalk.red(e));
   }
