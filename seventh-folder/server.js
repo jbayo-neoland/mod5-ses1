@@ -13,12 +13,20 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200
     res.setHeader('Content-Type', 'text/plain')
     res.end(`Hello`)
-  } else {
+  } else if (req.url === '/file') {
     fs.readFile(fileName, (err, data) => {
       res.statusCode = 200
       res.setHeader('Content-Type', 'text/html')
       res.end(`<pre>${data}</pre>`)
     })
+  } else if (req.url === '/cat') {
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'text/html')
+    res.end(`<h1>Miau</h1>`)
+  } else {
+    res.statusCode = 404
+    res.setHeader('Content-Type', 'text/html')
+    res.end(`<h2>Not found</h2>`)
   }
 })
 
