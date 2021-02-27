@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "first:s1": "node first-folder/s1.js",
+    "devServer": "nodemon seventh-folder/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,9 +22,11 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "cowsay": "^1.4.0",
+    "dotenv": "^8.2.0",
     "progressbar": "^1.3.0"
   },
   "devDependencies": {
-    "jasmine": "^3.6.4"
+    "jasmine": "^3.6.4",
+    "nodemon": "^2.0.7"
   }
 }
