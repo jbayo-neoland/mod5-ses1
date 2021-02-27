@@ -9,11 +9,17 @@ const fileName = path.resolve('./seventh-folder/chiquito.txt');
 console.log(fileName);
 
 const server = http.createServer((req, res) => {
-  fs.readFile(fileName, (err, data) => {
+  if(req.url === '/') {
     res.statusCode = 200
-    res.setHeader('Content-Type', 'text/html')
-    res.end(`<pre>${data}</pre>`)
-  })
+    res.setHeader('Content-Type', 'text/plain')
+    res.end(`Hello`)
+  } else {
+    fs.readFile(fileName, (err, data) => {
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'text/html')
+      res.end(`<pre>${data}</pre>`)
+    })
+  }
 })
 
 server.listen(port, () => {
