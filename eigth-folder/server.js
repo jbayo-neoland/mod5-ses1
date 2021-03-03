@@ -1,10 +1,20 @@
 const express = require('express')
 const app = express()
+const path = require('path');
+
+
+app.use('/assets', express.static(path.join(__dirname, 'my-folder')));
+
+
 
 app.get('/', function (req, res) {
   console.log(`query ${JSON.stringify(req.query, null, 2)}`);
   console.log(`headers ${JSON.stringify(req.headers, null, 2)}`);
   res.json({hey: 'ho'})
+})
+
+app.get('/a.txt', function (req, res) {
+  res.send('Are you asking for a file?')
 })
 
 app.get('/hello', function (req, res) {
