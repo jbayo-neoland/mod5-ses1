@@ -1,6 +1,10 @@
 const http = require('http')
 const fs = require('fs');
 const path = require('path');
+
+const cowsay = require('cowsay');
+const url = require('url');
+const querystring = require('querystring');
 require('dotenv').config();
 
 const port = process.env.PORT || 3000;
@@ -23,6 +27,19 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200
     res.setHeader('Content-Type', 'text/html')
     res.end(`<h1>Miau</h1>`)
+  } else if (req.url.indexOf('/code') > -1) {
+    const urlParsed = url.parse(req.url);
+    const message = querystring.parse(urlParsed.query).message ? querystring.parse(urlParsed.query).message : 'no message';
+
+    const result = cowsay.say({
+    	text : message,
+      e : "oO",
+	     T : "U "
+    })
+
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'text/html')
+    res.end(`<pre>${result}</pre>`)
   } else {
     res.statusCode = 404
     res.setHeader('Content-Type', 'text/html')
