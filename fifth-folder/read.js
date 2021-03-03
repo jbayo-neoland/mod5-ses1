@@ -14,20 +14,24 @@ fs.exists(fileName, function(exists) {
         let buffer = Buffer.alloc(stats.size);
 
         // read its contents into buffer
-        fs.read(fd, buffer, 0, buffer.length/2, null, function(error, bytesRead, buffer) {
-
-          let data = buffer.toString("utf8", 0, buffer.length);
-
-          console.log(`And the content is \n${data}`);
-          fs.close(fd, (err, data) => {
-            if (err) {
-              throw err;
-            }
-          });
-        });
+        fs.read(fd, buffer, 0, buffer.length/2, null, readCallback);
       });
     });
   }
 });
+
+const errorHandler = (err, data) => {
+  if (err) {
+    throw err;
+  }
+}
+
+function readCallback(error, bytesRead, buffer) {
+
+  let data = buffer.toString("utf8", 0, buffer.length);
+
+  console.log(`And the content is \n${data}`);
+  fs.close(fd, errorHandler);
+}
 
 console.log('Reading a file');
