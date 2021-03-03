@@ -7,6 +7,7 @@
     "first:s1": "node first-folder/s1.js",
     "devServer": "nodemon seventh-folder/server.js",
     "expressDevServer": "nodemon eigth-folder/server.js",
+    "staticFiles": "nodemon tenth-folder/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
